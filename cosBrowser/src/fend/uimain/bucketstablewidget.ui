@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ObjectsWidget</class>
- <widget class="QWidget" name="ObjectsWidget">
+ <class>BucketsTableWidget</class>
+ <widget class="QWidget" name="BucketsTableWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
-    <height>612</height>
+    <width>789</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>6</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -29,6 +32,9 @@
    <item>
     <widget class="QWidget" name="widgetTools" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -42,9 +48,9 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButtonBucketList">
+       <widget class="QPushButton" name="pushButtonCreateBucket">
         <property name="text">
-         <string>桶列表</string>
+         <string>创建桶</string>
         </property>
        </widget>
       </item>
@@ -56,27 +62,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonUpload">
-        <property name="text">
-         <string>上传</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButtonDownload">
-        <property name="text">
-         <string>下载</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>588</width>
           <height>20</height>
          </size>
         </property>
@@ -86,10 +78,7 @@
     </widget>
    </item>
    <item>
-    <widget class="BreadCrumdWidget" name="widgetBreadCrumb" native="true"/>
-   </item>
-   <item>
-    <widget class="QTableView" name="tableViewObjects">
+    <widget class="QTableView" name="tableView">
      <property name="editTriggers">
       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
      </property>
@@ -101,12 +90,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>BreadCrumdWidget</class>
-   <extends>QWidget</extends>
-   <header>src/fend/uicommond/breadcrumdwidget.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>PageFlipWidget</class>
    <extends>QWidget</extends>

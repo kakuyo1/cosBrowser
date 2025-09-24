@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include <src/middle/models/mybucket.h>
+
 namespace Ui {
 class ObjectsWidget;
 }
@@ -14,6 +16,18 @@ class ObjectsWidget : public QWidget
 public:
     explicit ObjectsWidget(QWidget *parent = nullptr);
     ~ObjectsWidget();
+
+private slots:
+    void on_pushButtonBucketList_clicked();
+
+    void on_tableViewObjects_doubleClicked(const QModelIndex &index);
+
+    void onObjectsSuccess(const QList<MyObject>& objects);
+
+    void onPathChanged(const QString& newPath);
+
+    void onPageNumberChanged(int startIndexInModel, int rowsToShow);
+    void on_pushButtonRefresh_clicked();
 
 private:
     Ui::ObjectsWidget *ui;

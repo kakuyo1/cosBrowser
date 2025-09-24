@@ -1,4 +1,5 @@
 #include "daocloudscos.h"
+#include "qdebug.h"
 #include "src/config/baseexception.h"
 #include "src/config/errorcode.h"
 #include "cos_api.h"
@@ -161,6 +162,7 @@ MyBucket DaoCloudsCos::getBucketByName(const QString &bucketName)
 
 QList<MyObject> DaoCloudsCos::getObjects(const QString &bucketName, const QString &dir)
 {
+    qDebug() << "4.DaoCloudsCos::getObjects: " << bucketName << dir;
     qcloud_cos::GetBucketReq req(bucketName.toStdString());
     qcloud_cos::GetBucketResp resp;
     if (dir != "") { // 说明是获取某个指定目录下的内容
@@ -257,7 +259,9 @@ QList<MyObject> DaoCloudsCos::getDirList(qcloud_cos::GetBucketResp &resp, const 
         obj.name = prefix.mid(dir.size()); // 去掉前缀部分，获取目录名
         obj.size = 0;
         obj.lastModified = "-"; // 目录没有最后修改时间
+        obj.key = prefix;
         list.append(obj);
+        qDebug() << "5.Dir: " << obj.dir << obj.name;
     }
     return list;
 }
@@ -276,7 +280,9 @@ QList<MyObject> DaoCloudsCos::getFileList(qcloud_cos::GetBucketResp &resp, const
             obj.name = file_name;
             obj.size = QString(file.m_size.c_str()).toULongLong();
             obj.lastModified = QString::fromStdString(file.m_last_modified);
+            obj.key = file_key;
             list.append(obj);
+            qDebug() << "6.File: " << obj.dir << obj.name << obj.size << obj.lastModified;
         }
     }
     return list;

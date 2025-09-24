@@ -13,26 +13,32 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="1">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <widget class="BucketsWidget" name="widget" native="true"/>
-     <widget class="QWidget" name="">
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1,0">
+     <widget class="QWidget" name="layoutWidget">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
        <item>
-        <widget class="ToolBarWidget" name="widgetToolBar" native="true"/>
-       </item>
-       <item>
-        <widget class="BreadCrumdWidget" name="widgetBreadCrumd" native="true"/>
-       </item>
-       <item>
-        <widget class="ObjectsWidget" name="widgetObject" native="true"/>
-       </item>
-       <item>
-        <widget class="PageFlipWidget" name="widgetPageFlip" native="true"/>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <widget class="BucketsTableWidget" name="pageBuckets"/>
+         <widget class="ObjectsWidget" name="pageObjects"/>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -48,27 +54,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>ToolBarWidget</class>
-   <extends>QWidget</extends>
-   <header>src/fend/uimain/toolbarwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>BreadCrumdWidget</class>
-   <extends>QWidget</extends>
-   <header>src/fend/uicommond/breadcrumdwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>ObjectsWidget</class>
    <extends>QWidget</extends>
-   <header>src/fend/uimain/objectswidget.h</header>
+   <header location="global">src/fend/uimain/objectswidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>PageFlipWidget</class>
+   <class>BucketsTableWidget</class>
    <extends>QWidget</extends>
-   <header>src/fend/uicommond/pageflipwidget.h</header>
+   <header location="global">src/fend/uimain/bucketstablewidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

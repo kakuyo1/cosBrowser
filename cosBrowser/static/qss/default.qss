@@ -47,13 +47,6 @@ QLabel{
 	background-color: transparent;
 }
 
-QLabel#labelLogo {
-	min-width:32px;
-	min-height:32px;
-	border-image:
-		url("B:/qtlearing/cosMain9-3/static/image/icontt.ico");
-}
-
 /*设置通用的QPushButton*/
 QPushButton{
 	background: transparent;
@@ -74,13 +67,10 @@ QPushButton#btnLogin{
 	font: bold 12pt;
 }
 
-QPushButton#btnClose{
-	border:none;
-}
-
-QPushButton#btnClose:hover{
-	border:none;
-	color:red;
+*[style_frame="bottomframe"]{
+        border:none;
+	border-bottom: 1px solid #cccccc;
+	border-radius: none;
 }
 
 

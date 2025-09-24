@@ -9,6 +9,7 @@
 #include <src/config/global.h>
 #include <src/bend/manager/managerdatabase.h>
 #include <src/plugins/managerplugin.h>
+#include <src/fend/uicommond/uiqoswidget.h>
 
 int main(int argc, char *argv[])
 {
@@ -28,9 +29,9 @@ int main(int argc, char *argv[])
         QMessageBox::critical(nullptr, "插件初始化错误", error);
         return -1; // 返回非零值表示错误
     }
+
     UiMain w;
     w.showLoginDialog();
-
     return a.exec();
 }
 

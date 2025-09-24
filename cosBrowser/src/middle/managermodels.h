@@ -11,14 +11,20 @@ class ManagerModels : public QObject
 public:
     explicit ManagerModels(QObject *parent = nullptr);
     QStandardItemModel *modelBuckets() const;
+    QStandardItemModel *modelObjects() const;
 
 signals:
 
 private slots:
     void setBuckets(const QList<MyBucket>& buckets);
+    void setObjects(const QList<MyObject>& objects);
 
 private:
+    void initBucketsTable();
+    void initObjectsTable();
+private:
     QStandardItemModel* m_modelBuckets = nullptr;
+    QStandardItemModel* m_modelObjects = nullptr;
 };
 
 #endif // MANAGERMODELS_H

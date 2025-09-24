@@ -3,12 +3,16 @@
 
 #include <QWidget>
 
+#include <src/fend/uicommond/uiqoswidget.h>
+
+#include <src/middle/models/mybucket.h>
+
 namespace Ui {
 class UiMain;
 }
 
 class LoginDialog;
-class UiMain : public QWidget
+class UiMain : public uiQosWidget
 {
     Q_OBJECT
 
@@ -18,6 +22,9 @@ public:
 
     void showLoginDialog();
 
+private slots:
+    void onBucketsSuccess(const QList<MyBucket>& buckets);
+    void onObjectsSuccess(const QList<MyObject>& objects);
 private:
     Ui::UiMain *ui;
     LoginDialog *m_loginDialog;

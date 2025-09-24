@@ -3,13 +3,15 @@
 
 #include <QDialog>
 
+#include <src/fend/uicommond/uiqoswidget.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class LoginDialog;
 }
 QT_END_NAMESPACE
 
-class LoginDialog : public QDialog
+class LoginDialog : public uiQosWidget
 {
     Q_OBJECT
 
@@ -20,20 +22,15 @@ public:
     void updateLoginInfo();
 
 protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private slots:
-    void on_btnClose_clicked();
-
-    void on_btnLogin_clicked();
+    void onBtnLoginClicked();
 
     void onLoginSuccess();
     void onError(int api, const QString& message, const QJsonValue& requestInfo);
 
 private:
     Ui::LoginDialog *ui;
-    QPoint m_startPos;
 };
 #endif // LOGINDIALOG_H

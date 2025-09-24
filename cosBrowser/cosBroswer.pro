@@ -41,12 +41,17 @@ SOURCES += \
     src/bend/manager/managercloud.cpp \
     src/bend/manager/managerdatabase.cpp \
     src/config/baseexception.cpp \
+    src/fend/uicommond/basedialog.cpp \
     src/fend/uicommond/breadcrumdwidget.cpp \
+    src/fend/uicommond/comboline.cpp \
     src/fend/uicommond/mylineedit.cpp \
     src/fend/uicommond/pageflipwidget.cpp \
+    src/fend/uicommond/uiqoswidget.cpp \
     src/fend/uidelegates/bucketdelegate.cpp \
     src/fend/uilogin/logindialog.cpp \
-    src/fend/uimain/bucketswidget.cpp \
+    src/fend/uimain/bucketsListwidget.cpp \
+    src/fend/uimain/bucketstablewidget.cpp \
+    src/fend/uimain/createbucketdialog.cpp \
     src/fend/uimain/objectswidget.cpp \
     src/fend/uimain/toolbarwidget.cpp \
     src/fend/uimain/uimain.cpp \
@@ -74,6 +79,12 @@ HEADERS += \
     src/config/baseexception.h \
     src/config/errorcode.h \
     src/config/global.h \
+    src/fend/uicommond/basedialog.h \
+    src/fend/uicommond/comboline.h \
+    src/fend/uicommond/uiqoswidget.h \
+    src/fend/uimain/bucketsListwidget.h \
+    src/fend/uimain/bucketstablewidget.h \
+    src/fend/uimain/createbucketdialog.h \
     src/middle/managerglobal.h \
     src/middle/managermodels.h \
     src/middle/models/dbmodels.h \
@@ -82,7 +93,6 @@ HEADERS += \
     src/fend/uicommond/pageflipwidget.h \
     src/fend/uidelegates/bucketdelegate.h \
     src/fend/uilogin/logindialog.h \
-    src/fend/uimain/bucketswidget.h \
     src/fend/uimain/objectswidget.h \
     src/fend/uimain/toolbarwidget.h \
     src/fend/uimain/uimain.h \
@@ -94,10 +104,14 @@ HEADERS += \
     src/plugins/managerplugin.h
 
 FORMS += \
+    src/fend/uicommond/basedialog.ui \
     src/fend/uicommond/breadcrumdwidget.ui \
     src/fend/uicommond/pageflipwidget.ui \
+    src/fend/uicommond/uiqoswidget.ui \
     src/fend/uilogin/logindialog.ui \
-    src/fend/uimain/bucketswidget.ui \
+    src/fend/uimain/bucketsListwidget.ui \
+    src/fend/uimain/bucketstablewidget.ui \
+    src/fend/uimain/createbucketdialog.ui \
     src/fend/uimain/objectswidget.ui \
     src/fend/uimain/toolbarwidget.ui \
     src/fend/uimain/uimain.ui

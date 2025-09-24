@@ -16,6 +16,8 @@ signals:
     // 登录成功
     void loginSuccess();
 
+    void unLogin();
+
     // 报错(接口 + 信息 + 请求信息)
     void error(int api, const QString& message, const QJsonValue& requestInfo);
 

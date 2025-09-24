@@ -21,7 +21,6 @@ ManagerCloud *ManagerCloud::instance()
 
 void ManagerCloud::login(const QString &secretId, const QString &secretKey)
 {
-    // （目前暂时）找到Mock版本的云服务接口返回的fake数据
     QList<MyBucket> buckets = MANAGER_GLOBAL->managerPlugin->clouds()->login(secretId, secretKey);
     emit MANAGER_GLOBAL->managerSignals->loginSuccess(); // 登录成功
     bucketsAlready(buckets); // 成功获取存储桶列表
@@ -48,6 +47,7 @@ void ManagerCloud::deleteBucket(const QString &bucketName)
 
 void ManagerCloud::getObjects(const QString &bucketName, const QString &dir)
 {
+    qDebug() << "3.getObjects: " << bucketName << dir;
     m_currentBucketName = bucketName;
     m_currentDir = dir;
     QList<MyObject> objects = MANAGER_GLOBAL->managerPlugin->clouds()->getObjects(bucketName, dir);

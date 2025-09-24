@@ -29,5 +29,10 @@
         <file>static/version/config_default.json</file>
         <file>static/configs/cosconfig.json</file>
         <file>static/docs/errorcode.csv</file>
+        <file>static/image/close2.png</file>
+        <file>static/image/close_hover.png</file>
+        <file>static/image/Close_normal.png</file>
+        <file>static/image/close_hover_.png</file>
+        <file>static/image/close_normal_.png</file>
     </qresource>
 </RCC>

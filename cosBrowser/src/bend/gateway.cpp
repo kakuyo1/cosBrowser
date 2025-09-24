@@ -30,10 +30,17 @@ void GateWay::send(int api, const QJsonValue &value)
     QThreadPool::globalInstance()->start([=](){
         try {
             this->dispatch(api,value);
-        } catch (BaseException e) {  // 按值捕获，避免悬空引用
+        }
+        catch (const BaseException &e) {
             spdlog::warn("Error in GateWay::send: {}", e.message().toLocal8Bit().constData());
             emit MANAGER_GLOBAL->managerSignals->error(api, e.message(), QJsonValue());
-        } catch(...) {
+        }
+        catch(const std::exception &e) {
+            spdlog::warn("std::exception in GateWay::send: {}", e.what());
+            BaseException be(EC_100000, QString("std::exception: %1").arg(e.what()));
+            emit MANAGER_GLOBAL->managerSignals->error(api, be.message(), QJsonValue());
+        }
+        catch(...) {
             BaseException e = BaseException(EC_100000, "未知错误");
             spdlog::warn("Unknown error in GateWay::send");
             emit MANAGER_GLOBAL->managerSignals->error(api, e.message(), QJsonValue());
@@ -102,6 +109,7 @@ void GateWay::apiBucketsDelete(const QJsonValue &value)
 
 void GateWay::apiObjectsList(const QJsonValue &value)
 {
+    qDebug() << "2.apiObjectsList";
     QString bucketName = value["bucketName"].toString();
     QString dir = value["dir"].toString();
     MANAGER_GLOBAL->managerCloud->getObjects(bucketName, dir);

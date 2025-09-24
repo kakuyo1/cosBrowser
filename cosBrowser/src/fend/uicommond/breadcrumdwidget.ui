@@ -30,24 +30,20 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QPushButton" name="btnStoreBucket">
-     <property name="text">
-      <string>存储桶</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
+    <widget class="QListView" name="listView">
+     <property name="maximumSize">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>16777215</width>
+       <height>50</height>
       </size>
      </property>
-    </spacer>
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="flow">
+      <enum>QListView::Flow::LeftToRight</enum>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

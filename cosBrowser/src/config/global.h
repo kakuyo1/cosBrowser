@@ -10,6 +10,19 @@ namespace PATH {
     static const QString WORK = QDir::currentPath();
     static const QString TMP = FileHelper::joinPath(WORK, "tmp");
     static const QString ERROE_CODE_PATH = ":/static/docs/errorcode.csv"; // 错误码CSV文件路径
+
+    static const QString LOGO_PATH = ":/static/image/icontt.ico"; // 程序logo路径
+    static const QString MAXIMIZE_PATH = ":/static/image/Maximize-1.png"; // 最大化按钮图片路径
+    static const QString MAXIMIZE_HOVER_PATH = ":/static/image/Maximize-2.png"; // 最大化按钮hover图片路径
+    static const QString NORMAL_PATH = ":/static/image/Maximize-3.png"; // 恢复按钮图片路径
+    static const QString NORMAL_HOVER_PATH = ":/static/image/Maximize-4.png"; // 恢复按钮hover图片路径
+    static const QString MINIMIZE_PATH = ":/static/image/Minimize-1.png"; // 最小化按钮图片路径
+    static const QString MINIMIZE_HOVER_PATH = ":/static/image/Minimize-2.png"; // 最小化按钮hover图片路径
+
+    static const QString QUIT = ":/static/image/Quit-1.png";
+    static const QString QUIT_HOVER = ":/static/image/Quit-2.png";
+    static const QString TRANS = ":/static/image/Trans-1.png";
+    static const QString TRANS_HOVER = ":/static/image/Trans-2.png";
 };
 // SQLite数据库文件路径
 namespace SQLITE {
