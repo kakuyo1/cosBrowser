@@ -10,7 +10,7 @@ uiQosWidget::uiQosWidget(QWidget *parent)
     setLogoImage(CONFIG::PATH::LOGO_PATH);
     setTitleText("Qos");
     setLogoFixedSize(40, 40);
-    setTitleProperty("TitleStyle", "h4");
+    setTitleProperty("style_font", "h4");
     // this->setWindowIcon(QIcon(":/static/image/icontt.ico"));
     // resize(400,50);
 }

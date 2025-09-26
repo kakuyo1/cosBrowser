@@ -7,6 +7,8 @@
 
 #include <src/middle/models/mybucket.h>
 
+#include <src/fend/uitransfer/uitransfer.h>
+
 namespace Ui {
 class UiMain;
 }
@@ -22,12 +24,15 @@ public:
 
     void showLoginDialog();
 
+    void showTransfer();
 private slots:
     void onBucketsSuccess(const QList<MyBucket>& buckets);
     void onObjectsSuccess(const QList<MyObject>& objects);
+    void onError(int api, const QString& message, const QJsonValue& requestInfo);
 private:
     Ui::UiMain *ui;
     LoginDialog *m_loginDialog;
+    UiTransfer* m_transferWidget;
 };
 
 #endif // UIMAIN_H

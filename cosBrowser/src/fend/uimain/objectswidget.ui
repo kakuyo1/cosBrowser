@@ -42,28 +42,28 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButtonBucketList">
+       <widget class="UiPushButton" name="pushButtonBucketList">
         <property name="text">
          <string>桶列表</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonRefresh">
+       <widget class="UiPushButton" name="pushButtonRefresh">
         <property name="text">
          <string>刷新</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonUpload">
+       <widget class="UiPushButton" name="pushButtonUpload">
         <property name="text">
          <string>上传</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonDownload">
+       <widget class="UiPushButton" name="pushButtonDownload">
         <property name="text">
          <string>下载</string>
         </property>
@@ -93,6 +93,12 @@
      <property name="editTriggers">
       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
      </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item>
@@ -102,15 +108,20 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>BreadCrumdWidget</class>
-   <extends>QWidget</extends>
-   <header>src/fend/uicommond/breadcrumdwidget.h</header>
-   <container>1</container>
+   <class>UiPushButton</class>
+   <extends>QPushButton</extends>
+   <header>src/fend/uicommond/uipushbutton.h</header>
   </customwidget>
   <customwidget>
    <class>PageFlipWidget</class>
    <extends>QWidget</extends>
    <header>src/fend/uicommond/pageflipwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BreadCrumdWidget</class>
+   <extends>QWidget</extends>
+   <header>src/fend/uicommond/breadcrumdwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

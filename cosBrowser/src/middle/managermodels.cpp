@@ -1,6 +1,6 @@
 #include "managermodels.h"
 #include "src/middle/managerglobal.h"
-
+#include "src/config/global.h"
 #include <src/middle/models/mybucket.h>
 
 #include <src/middle/signals/managersignals.h>
@@ -39,6 +39,7 @@ void ManagerModels::setBuckets(const QList<MyBucket> &buckets)
         QModelIndex index_name = m_modelBuckets->index(i, 0);
         m_modelBuckets->setData(index_name, bucket.name);
         m_modelBuckets->setData(index_name, QString("存储桶名称: %1").arg(bucket.name), Qt::ToolTipRole);
+        m_modelBuckets->setData(index_name, QIcon(CONFIG::PATH::BUCKET), Qt::DecorationRole);
         // 第二列
         QModelIndex index_location = m_modelBuckets->index(i,1);
         m_modelBuckets->setData(index_location, bucket.location);
@@ -61,6 +62,11 @@ void ManagerModels::setObjects(const QList<MyObject> &objects)
         QVariant var;
         var.setValue(object);
         m_modelObjects->setData(index_name, var, Qt::UserRole); // 存储对象信息
+        if(object.isDir()) {
+            m_modelObjects->setData(index_name, QIcon(CONFIG::PATH::DIR), Qt::DecorationRole);
+        } else {
+            m_modelObjects->setData(index_name, QIcon(CONFIG::PATH::FILE), Qt::DecorationRole);
+        }
         // 大小
         QModelIndex index_size = m_modelObjects->index(i, 1);
         m_modelObjects->setData(index_size, object.size);

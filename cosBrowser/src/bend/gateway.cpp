@@ -27,7 +27,7 @@ void GateWay::send(int api, const QJsonValue &value)
 {
     // Qt 框架提供的一个全局线程池的单例访问接口。它返回一个应用程序范围内共享的 QThreadPool 实例。
     // 实际上，QtConcurrent::run() 在底层就是使用全局线程池
-    QThreadPool::globalInstance()->start([=](){
+    QtConcurrent::run([=](){
         try {
             this->dispatch(api,value);
         }
@@ -119,7 +119,7 @@ void GateWay::apiObjectsGet(const QJsonValue &value)
 {
     QString jobId = value["jobId"].toString(); // uuid
     QString bucketName = value["bucketName"].toString(); // 桶名称
-    QString objectKey = value["objectKey"].toString(); // 文件在云端的完整路径
+    QString objectKey = value["key"].toString(); // 文件在云端的完整路径
     QString localPath = value["localPath"].toString(); // 下载到本地的路径
     MANAGER_GLOBAL->managerCloud->getObject(jobId, bucketName, objectKey, localPath);
     spdlog::info("Object Downloaded: {} : {} -> {}", bucketName.toStdString(), objectKey.toStdString(), localPath.toStdString());
@@ -129,8 +129,8 @@ void GateWay::apiObjectsPut(const QJsonValue &value)
 {
     QString jobId = value["jobId"].toString(); // uuid
     QString bucketName = value["bucketName"].toString(); // 桶名称
-    QString objectKey = value["objectKey"].toString(); // 文件在云端的完整路径
-    QString localFilePath = value["localFilePath"].toString(); // 上传的本地文件路径
+    QString objectKey = value["key"].toString(); // 文件在云端的完整路径
+    QString localFilePath = value["localPath"].toString(); // 上传的本地文件路径
     MANAGER_GLOBAL->managerCloud->putObject(jobId, bucketName, objectKey, localFilePath);
     spdlog::info("Object Uploaded: {} : {} -> {}", bucketName.toStdString(), localFilePath.toStdString(), objectKey.toStdString());
 }

@@ -46,8 +46,12 @@ SOURCES += \
     src/fend/uicommond/comboline.cpp \
     src/fend/uicommond/mylineedit.cpp \
     src/fend/uicommond/pageflipwidget.cpp \
+    src/fend/uicommond/uimessagebox.cpp \
+    src/fend/uicommond/uiprogressbarwidget.cpp \
+    src/fend/uicommond/uipushbutton.cpp \
     src/fend/uicommond/uiqoswidget.cpp \
     src/fend/uidelegates/bucketdelegate.cpp \
+    src/fend/uidelegates/tableitemdelegate.cpp \
     src/fend/uilogin/logindialog.cpp \
     src/fend/uimain/bucketsListwidget.cpp \
     src/fend/uimain/bucketstablewidget.cpp \
@@ -55,6 +59,10 @@ SOURCES += \
     src/fend/uimain/objectswidget.cpp \
     src/fend/uimain/toolbarwidget.cpp \
     src/fend/uimain/uimain.cpp \
+    src/fend/uitransfer/uidownload.cpp \
+    src/fend/uitransfer/uitransfer.cpp \
+    src/fend/uitransfer/uiupload.cpp \
+    src/helper/byteshelper.cpp \
     src/helper/dbsqlite.cpp \
     src/helper/filehelper.cpp \
     src/middle/managerglobal.cpp \
@@ -81,10 +89,18 @@ HEADERS += \
     src/config/global.h \
     src/fend/uicommond/basedialog.h \
     src/fend/uicommond/comboline.h \
+    src/fend/uicommond/uimessagebox.h \
+    src/fend/uicommond/uiprogressbarwidget.h \
+    src/fend/uicommond/uipushbutton.h \
     src/fend/uicommond/uiqoswidget.h \
+    src/fend/uidelegates/tableitemdelegate.h \
     src/fend/uimain/bucketsListwidget.h \
     src/fend/uimain/bucketstablewidget.h \
     src/fend/uimain/createbucketdialog.h \
+    src/fend/uitransfer/uidownload.h \
+    src/fend/uitransfer/uitransfer.h \
+    src/fend/uitransfer/uiupload.h \
+    src/helper/byteshelper.h \
     src/middle/managerglobal.h \
     src/middle/managermodels.h \
     src/middle/models/dbmodels.h \
@@ -107,6 +123,8 @@ FORMS += \
     src/fend/uicommond/basedialog.ui \
     src/fend/uicommond/breadcrumdwidget.ui \
     src/fend/uicommond/pageflipwidget.ui \
+    src/fend/uicommond/uimessagebox.ui \
+    src/fend/uicommond/uiprogressbarwidget.ui \
     src/fend/uicommond/uiqoswidget.ui \
     src/fend/uilogin/logindialog.ui \
     src/fend/uimain/bucketsListwidget.ui \
@@ -114,7 +132,10 @@ FORMS += \
     src/fend/uimain/createbucketdialog.ui \
     src/fend/uimain/objectswidget.ui \
     src/fend/uimain/toolbarwidget.ui \
-    src/fend/uimain/uimain.ui
+    src/fend/uimain/uimain.ui \
+    src/fend/uitransfer/uidownload.ui \
+    src/fend/uitransfer/uitransfer.ui \
+    src/fend/uitransfer/uiupload.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

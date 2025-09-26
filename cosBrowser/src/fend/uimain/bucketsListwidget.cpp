@@ -14,7 +14,19 @@ BucketsWidget::BucketsWidget(QWidget *parent)
 {
     ui->setupUi(this);
     ui->listViewBuckets->setModel(MANAGER_GLOBAL->managerModels->modelBuckets());
-
+    // 设置样式
+    ui->listViewBuckets->setStyleSheet(R"(
+    QListView {
+        border: none;
+    }
+    QListView::item {
+        height: 30px;
+    }
+    QListView::item:hover,
+    QListView::item:selected {
+        background-color: rgba(221, 221, 221, 0.4); /* 等价于 #66dddddd */
+        color: blue;
+    })");
     // 信号槽连接
     connect(MANAGER_GLOBAL->managerSignals, &ManagerSignals::bucketsSuccess, this, &BucketsWidget::onBucketsSuccess);
     connect(ui->lineEditSearch, &ComboLine::itemSelected, this, &BucketsWidget::showBucketObjects);

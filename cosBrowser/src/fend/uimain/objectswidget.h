@@ -27,7 +27,18 @@ private slots:
     void onPathChanged(const QString& newPath);
 
     void onPageNumberChanged(int startIndexInModel, int rowsToShow);
+
     void on_pushButtonRefresh_clicked();
+
+    void on_pushButtonUpload_clicked();
+
+    void on_pushButtonDownload_clicked();
+
+    void onUploadSuccess(const QString &jobId);
+
+    void onDownloadSuccess(const QString &jobId);
+private:
+    void showMessageBox(const QString& title, const QString& messsage);
 
 private:
     Ui::ObjectsWidget *ui;

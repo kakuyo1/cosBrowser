@@ -20,6 +20,31 @@ int main(int argc, char *argv[])
     // 设置全局日志级别为debug
     spdlog::set_level(spdlog::level::debug);
 
+    // 部分样式（qss中不生效）
+    qApp->setStyleSheet(R"(/*设置滚动条*/
+QScrollBar {
+        border:none;
+    background-color: transparent;
+}
+
+QScrollBar:horizontal {
+        height: 6px;
+}
+
+QScrollBar:vertical {
+        width: 6px;
+}
+
+QScrollBar::handle {
+        background: #aaaaaa;
+    border-radius: 3px;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+        border: none;
+}
+)");
+
     // 初始化所有单例
     try{
         MANAGER_GLOBAL->init(argc, argv);
@@ -34,36 +59,3 @@ int main(int argc, char *argv[])
     w.showLoginDialog();
     return a.exec();
 }
-
-// #include "cos_api.h"
-// #include "cos_sys_config.h"
-// #include "cos_defines.h"
-
-// int main(int argc, char *argv[]) {
-//     // 1. 指定配置文件路径，初始化 CosConfig
-//     qcloud_cos::CosConfig config("./config.json");
-//     qcloud_cos::CosAPI cos(config);
-
-//     // 2. 构造创建存储桶的请求
-//     std::string bucket_name = "examplebucket-1250000000";
-//     // 替换为用户的存储桶名，由 bucketname-appid 组成，appid 必须填入，
-//     // 可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
-//     qcloud_cos::PutBucketReq req(bucket_name);
-//     qcloud_cos::PutBucketResp resp;
-
-//     // 3. 调用创建存储桶接口
-//     qcloud_cos::CosResult result = cos.PutBucket(req, &resp);
-
-//     // 4. 处理调用结果
-//     if (result.IsSucc()) {
-//         // 创建成功
-//     } else {
-//         // 创建存储桶失败，可以调用 CosResult 的成员函数输出错误信息，例如 requestID 等
-//         std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
-//         std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
-//         std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
-//         std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
-//         std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
-//         std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
-//     }
-// }

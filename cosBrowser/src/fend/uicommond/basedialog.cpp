@@ -19,6 +19,7 @@ BaseDialog::BaseDialog(QWidget *parent)
     // 设置图标
     setLogoImage(":/static/image/icontt.ico");
     ui->labelLogo->setFixedSize(40, 40);
+    ui->frameTitle->setStyleSheet("QFrame{ border: none}");
 }
 
 BaseDialog::~BaseDialog()
@@ -60,7 +61,7 @@ void BaseDialog::addMaxmizeButton(const QString &maxmizeImagePth, const QString 
 
 QPushButton *BaseDialog::addButton(const QString &normalImagePth, const QString &hoverImagePath)
 {
-    QPushButton* button = new QPushButton;
+    QPushButton* button = new UiPushButton;
     button->setFixedSize(m_buttonSize, m_buttonSize);
     setButtonImage(button, normalImagePth, hoverImagePath);
     addWidget(button);
@@ -111,7 +112,7 @@ void BaseDialog::mousePressEvent(QMouseEvent *event)
 void BaseDialog::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
-        if (event->pos().y() > 34) {// 标题栏高度 34, 仅允许在标题栏拖动窗口
+        if (event->pos().y() > 50) {// 标题栏高度 50, 仅允许在标题栏拖动窗口
             return;
         }
         QPoint targetPos = event->pos() - m_startPos + pos();

@@ -23,6 +23,10 @@ namespace PATH {
     static const QString QUIT_HOVER = ":/static/image/Quit-2.png";
     static const QString TRANS = ":/static/image/Trans-1.png";
     static const QString TRANS_HOVER = ":/static/image/Trans-2.png";
+
+    static const QString BUCKET = ":/static/image/bucket.png";
+    static const QString DIR = ":/static/image/dir.png";
+    static const QString FILE = ":/static/image/file.png";
 };
 // SQLite数据库文件路径
 namespace SQLITE {

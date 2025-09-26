@@ -22,6 +22,22 @@ BreadCrumdWidget::BreadCrumdWidget(QWidget *parent)
 
     // 默认路径为空
     setPath("");
+
+    setCursor(Qt::PointingHandCursor);
+
+    // 设置样式
+    ui->listView->setStyleSheet(R"(
+    QListView {
+        border: none;
+    }
+    QListView::item {
+        height: 30px;
+    }
+    QListView::item:hover,
+    QListView::item:selected {
+        background-color: rgba(221, 221, 221, 0.4); /* 等价于 #66dddddd */
+        color: blue;
+    })");
 }
 
 BreadCrumdWidget::~BreadCrumdWidget()

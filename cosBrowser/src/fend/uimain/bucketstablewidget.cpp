@@ -14,6 +14,8 @@
 
 #include <src/middle/signals/managersignals.h>
 
+#include <src/fend/uidelegates/tableitemdelegate.h>
+
 BucketsTableWidget::BucketsTableWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::BucketsTableWidget)
@@ -32,17 +34,39 @@ BucketsTableWidget::BucketsTableWidget(QWidget *parent)
     ui->tableView->setSortingEnabled(true);
 
     // 初始化翻页按钮
-    ui->widgetPageFlip->setRowPerPageItems({2, 5, 10, 20});
+    ui->widgetPageFlip->setRowPerPageItems({5, 10, 20});
 
     // 添加右键弹出删除桶菜单
     ui->tableView->setContextMenuPolicy(Qt::ActionsContextMenu); // ActionsContextMenu 允许通过右键点击显示动作菜单
     QAction* deleteAction = new QAction("删除存储桶", this);
     ui->tableView->addAction(deleteAction);
 
+    // 设置样式
+    ui->pushButtonCreateBucket->setProperty("style_button", "main");
+    ui->tableView->setStyleSheet(R"(
+        QTableView {
+    border: none;
+    border-top: 1px solid #dddddd;
+    }
+    QTableView::item {
+    height: 30px;
+    }
+    QTableView::item {
+    border-bottom: 1px solid #dddddd;
+    }
+    QTableView::item:hover,
+                       QTableView::item:selected {
+        background-color: rgba(221, 221, 221, 0.4); /* 等价于 #66dddddd */
+    color: blue;
+    })");
+
     // 信号槽连接
     connect(ui->widgetPageFlip, &PageFlipWidget::pageNumberChanged,this, &BucketsTableWidget::onPageNumberChanged);
     connect(MANAGER_GLOBAL->managerSignals, &ManagerSignals::bucketsSuccess, this, &BucketsTableWidget::onBucketsSuccess);
     connect(deleteAction, &QAction::triggered, this, &BucketsTableWidget::onDeleteActionTriggered);
+
+    // 设置itemdelegate
+    ui->tableView->setItemDelegate(new TableItemDelegate(ui->tableView));
 }
 
 BucketsTableWidget::~BucketsTableWidget()
@@ -76,6 +100,11 @@ void BucketsTableWidget::onBucketsSuccess(const QList<MyBucket> &buckets)
     // 每次获取到新的存储桶列表时，设置翻页控件总行数
     qDebug() << "BucketsTableWidget::onBucketsSuccess: " << buckets.size();
     ui->widgetPageFlip->setTotalRow(buckets.size());
+    // 设置行高
+    QStandardItemModel* model = MANAGER_GLOBAL->managerModels->modelBuckets();
+    for (int i = 0; i < model->rowCount(); ++i) {
+        ui->tableView->setRowHeight(i, 40);
+    }
 }
 
 

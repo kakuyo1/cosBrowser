@@ -14,17 +14,20 @@
    <string>Dialog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1">
+   <property name="spacing">
+    <number>2</number>
+   </property>
    <property name="leftMargin">
-    <number>9</number>
+    <number>6</number>
    </property>
    <property name="topMargin">
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>9</number>
+    <number>6</number>
    </property>
    <property name="bottomMargin">
-    <number>9</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="QFrame" name="frameTitle">
@@ -71,7 +74,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonClose">
+       <widget class="UiPushButton" name="pushButtonClose">
         <property name="text">
          <string/>
         </property>
@@ -92,6 +95,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>UiPushButton</class>
+   <extends>QPushButton</extends>
+   <header>src/fend/uicommond/uipushbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

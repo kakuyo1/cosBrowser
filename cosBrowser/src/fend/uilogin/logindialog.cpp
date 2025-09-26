@@ -21,11 +21,12 @@ LoginDialog::LoginDialog(QWidget *parent)
     // ui->labelLogo->setPixmap(logoPixmap.scaled(ui->labelLogo->size()));
 
     // QSS设置样式
-    ui->labelSecretId->setProperty("TitleStyle", "h5");
-    ui->labelSecretKey->setProperty("TitleStyle", "h5");
-    ui->labelRemark->setProperty("TitleStyle", "h5");
-    ui->labelLoginName->setProperty("TitleStyle", "h5");
-    ui->btnLogin->setProperty("TitleStyle", "h5");
+    ui->labelSecretId->setProperty("style_font", "h5");
+    ui->labelSecretKey->setProperty("style_font", "h5");
+    ui->labelRemark->setProperty("style_font", "h5");
+    ui->labelLoginName->setProperty("style_font", "h5");
+    ui->btnLogin->setProperty("style_font", "h5");
+    ui->btnLogin->setProperty("style_button", "main");
 
     // 安装事件过滤器
     ui->lineEditSecretKey->installEventFilter(this);

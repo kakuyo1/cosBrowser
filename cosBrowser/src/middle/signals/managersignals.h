@@ -30,6 +30,10 @@ signals:
     // 成功删除存储桶
     void deleteBucketSuccess(const QString& bucketName);
 
+    // 开始上传/下载信号
+    void startUpload(const QString& jobId, const QString& key, const QString& localPath);
+    void startDownload(const QString &jobId, const QString &key, const QString &localPath, qulonglong totalSize);
+
     // 上传/下载进度提示信号
     void uploadProcess(const QString& jobId, qulonglong transferred_size, qulonglong total_size);
     void downloadProcess(const QString& jobId, qulonglong transferred_size, qulonglong total_size);
